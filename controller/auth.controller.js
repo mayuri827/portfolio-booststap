@@ -35,7 +35,7 @@ exports.loginUser = asyncHandler(async (req, res) => {
     }
 
     //verifly token 👇
-    const token = jwt.sign({ userId: result._id }, process.env.JWT_KEY, { expiresIn: "id" })
+    const token = jwt.sign({ userId: result._id }, process.env.JWT_KEY, { expiresIn: "1d" })
 
     //verifly cookie👇
     res.cookie(token, "user", { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 })
