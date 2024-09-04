@@ -9,13 +9,13 @@ const { checkEmpty } = require("../utils/checkEmpty")
 
 exports.registerUser = asyncHandler(async (req, res) => {
     const pass = await bcrypt.hash(req.body.password, 10)
-    await User.create({ ...req.body, password: bcrypt.hash })
+    await User.create({ ...req.body, password: pass })
     res.json({ message: "register success" })
 })
 exports.loginUser = asyncHandler(async (req, res) => {
 
     //verifly empty 👇
-    const { sendEmail, password } = req.body
+    const { email, password } = req.body
     const { error, isError } = checkEmpty()
     if (isError) {
         return res.status(401).json({ message: "All Feilds Required", error })
