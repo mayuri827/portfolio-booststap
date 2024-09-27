@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(express.static("dist"))
 app.use(cookieParser())
 app.use(cors({
-    origin: process.env.NODE_ENV === "production"
+    origin: process.env.NODE_ENV === "development"
         ? "http://localhost:5173"
         : "https://portfolio-booststap-1.onrender.com",
 
