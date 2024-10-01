@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 const express = require("express")
 const cors = require("cors")
+const path = require("path")
 const cookieParser = require("cookie-parser")
 const { adminProtected } = require("./middlewares/protected")
 require("dotenv").config()
