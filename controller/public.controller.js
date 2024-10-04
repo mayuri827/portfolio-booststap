@@ -2,10 +2,11 @@
 const asyncHandler = require("express-async-handler")
 const Projects = require("../model/Projects")
 const Enquiry = require("../model/Enquiry")
+const Carousel = require("../model/Carousel")
 
 
 exports.getCarousel = asyncHandler(async (req, res) => {
-    const result = await Projects.find()
+    const result = await Carousel.find()
     res.json({ message: "Fetch carousel success", result })
 })
 
