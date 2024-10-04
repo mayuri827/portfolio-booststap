@@ -39,14 +39,14 @@ exports.addEnquiry = asyncHandler(async (req, res) => {
         return res.status(400).json({ message: "Invalid Mobile" })
     }
     //savatayala pathavlele email👇
-    sendEmail({
+    await sendEmail({
         to: "mayurikhade85@gmail.com",
         message: `company ${company},email${email},mobile${mobile} message${message}`,
         subject: `new Enquery from ${company}`
     })
 
     //samorchyala pathavlele email👇
-    sendEmail({
+    await sendEmail({
         to: email,
         message: `thank tou for  enquery. I will get in touch with you soon.`,
         subject: `Thank you for your intrest.`
