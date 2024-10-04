@@ -3,6 +3,7 @@ const asyncHandler = require("express-async-handler")
 const Projects = require("../model/Projects")
 const Enquiry = require("../model/Enquiry")
 const Carousel = require("../model/Carousel")
+const validator = require("validator")
 const { checkEmpty } = require("../utils/checkEmpty")
 
 
