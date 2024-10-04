@@ -1,6 +1,7 @@
 
 const asyncHandler = require("express-async-handler")
 const Projects = require("../model/Projects")
+const Enquiry = require("../model/Enquiry")
 
 
 exports.getCarousel = asyncHandler(async (req, res) => {
