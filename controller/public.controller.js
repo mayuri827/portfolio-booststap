@@ -5,6 +5,7 @@ const Enquiry = require("../model/Enquiry")
 const Carousel = require("../model/Carousel")
 const validator = require("validator")
 const { checkEmpty } = require("../utils/checkEmpty")
+const sendEmail = require("../utils/email")
 
 
 exports.getCarousel = asyncHandler(async (req, res) => {
@@ -37,6 +38,20 @@ exports.addEnquiry = asyncHandler(async (req, res) => {
     if (!validator.isMobilePhone(mobile, "en-IN")) {
         return res.status(400).json({ message: "Invalid Mobile" })
     }
+    //savatayala pathavlele email👇
+    sendEmail({
+        to: "mayurikhade85@gmail.com",
+        message: `company ${company},email${email},mobile${mobile} message${message}`,
+        subject: `new Enquery from ${company}`
+    })
+
+    //samorchyala pathavlele email👇
+    sendEmail({
+        to: email,
+        message: `thank tou for  enquery. I will get in touch with you soon.`,
+        subject: `Thank you for your intrest.`
+    })
+
     await Enquiry.create({ name, email, mobile, message, company })
     res.json({ message: "Enquery Message Added Success...!", })
 })
